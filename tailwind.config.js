@@ -11,8 +11,8 @@ export default {
         'text-muted': '#475569',   // Slate 600
       },
       fontFamily: {
-        display: ['Clash Display', 'sans-serif'],
-        body: ['DM Sans', 'sans-serif'],
+        display: ['Inter', '"Segoe UI"', 'sans-serif'],
+        body: ['Inter', '"Segoe UI"', 'sans-serif'],
       },
       animation: {
         'blob': 'blob 7s infinite',
