@@ -2,6 +2,7 @@ import { useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { gsap } from 'gsap'
 import { Hexagon } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 export default function Navbar() {
   const navRef = useRef(null)
@@ -23,11 +24,11 @@ export default function Navbar() {
   }, [])
 
   const navLinks = [
-    { name: 'About', href: '#about' },
-    { name: 'Services', href: '#services' },
-    { name: 'Technologies', href: '#technologies' },
-    { name: 'Training', href: '#training' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'About', href: '/about' },
+    { name: 'Services', href: '/#services' },
+    { name: 'Technologies', href: '/#technologies' },
+    { name: 'Training', href: '/#training' },
+    { name: 'Contact', href: '/#contact' },
   ]
 
   return (
@@ -38,12 +39,12 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto w-full px-6 flex items-center justify-between">
         
         {/* Logo */}
-        <a href="#" className="flex items-center gap-2 group">
+        <Link to="/" className="flex items-center gap-2 group">
           <Hexagon className="w-6 h-6 text-cobalt fill-cobalt/20 group-hover:rotate-12 transition-transform duration-300" />
           <span className="font-display font-bold text-xl tracking-tight text-text-primary">
             Skyvo Technologies
           </span>
-        </a>
+        </Link>
 
         {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-8">

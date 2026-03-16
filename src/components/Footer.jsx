@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import { Hexagon, Linkedin, Twitter, Github, Youtube } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import { Hexagon, Linkedin, Facebook, Instagram } from 'lucide-react'
 
 export default function Footer() {
   const [subscribed, setSubscribed] = useState(false)
@@ -17,20 +18,19 @@ export default function Footer() {
           
           {/* Col 1 - Brand */}
           <div className="space-y-6">
-            <a href="#" className="flex items-center gap-2 group">
+            <Link to="/" className="flex items-center gap-2 group">
               <Hexagon className="w-6 h-6 text-cobalt fill-cobalt/20 group-hover:rotate-12 transition-transform duration-300" />
               <span className="font-display font-bold text-xl tracking-tight text-text-primary">
                 Skyvo Technologies
               </span>
-            </a>
+            </Link>
             <p className="text-text-muted text-sm leading-relaxed">
               Architecting intelligent systems that transform how businesses operate through Agentic AI.
             </p>
             <div className="flex items-center gap-4">
-              <a href="#" className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-text-muted hover:text-cobalt hover:border-cobalt transition-colors"><Linkedin className="w-4 h-4" /></a>
-              <a href="#" className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-text-muted hover:text-cobalt hover:border-cobalt transition-colors"><Twitter className="w-4 h-4" /></a>
-              <a href="#" className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-text-muted hover:text-cobalt hover:border-cobalt transition-colors"><Github className="w-4 h-4" /></a>
-              <a href="#" className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-text-muted hover:text-cobalt hover:border-cobalt transition-colors"><Youtube className="w-4 h-4" /></a>
+              <a href="https://www.facebook.com/profile.php?id=61575697155956" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-text-muted hover:text-cobalt hover:border-cobalt transition-colors"><Facebook className="w-4 h-4" /></a>
+              <a href="https://www.instagram.com/skyvo.in/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-text-muted hover:text-cobalt hover:border-cobalt transition-colors"><Instagram className="w-4 h-4" /></a>
+              <a href="https://www.linkedin.com/company/107306556" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-text-muted hover:text-cobalt hover:border-cobalt transition-colors"><Linkedin className="w-4 h-4" /></a>
             </div>
           </div>
 
@@ -38,11 +38,21 @@ export default function Footer() {
           <div>
             <h4 className="font-display font-semibold text-text-primary mb-6">Quick Links</h4>
             <ul className="space-y-4">
-              {['About Us', 'Services', 'Training Programs', 'Case Studies', 'Blog', 'Careers', 'Contact'].map((link, i) => (
+              {[
+                { name: 'About Us', path: '/about' },
+                { name: 'Services', path: '/#services' },
+                { name: 'Contact', path: '/#contact' }
+              ].map((link, i) => (
                 <li key={i}>
-                  <a href={`#${link.toLowerCase().replace(' ', '-')}`} className="text-sm text-text-muted hover:text-cobalt transition-colors">
-                    {link}
-                  </a>
+                  {link.path.startsWith('/') && !link.path.includes('#') ? (
+                    <Link to={link.path} className="text-sm text-text-muted hover:text-cobalt transition-colors">
+                      {link.name}
+                    </Link>
+                  ) : (
+                    <a href={link.path} className="text-sm text-text-muted hover:text-cobalt transition-colors">
+                      {link.name}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
@@ -52,9 +62,15 @@ export default function Footer() {
           <div>
             <h4 className="font-display font-semibold text-text-primary mb-6">Services</h4>
             <ul className="space-y-4">
-              {['Agentic AI Dev', 'AI Automation', 'Chatbots', 'AI Consulting', 'Corporate Training'].map((link, i) => (
+              {[
+                'Agentic AI Systems Development',
+                'AI-Powered Process Automation',
+                'Next-Generation Conversational AI',
+                'AI Readiness & Strategic Planning',
+                'Corporate AI Training Programs'
+              ].map((link, i) => (
                 <li key={i}>
-                  <a href="#services" className="text-sm text-text-muted hover:text-cobalt transition-colors">
+                  <a href="/#services" className="text-sm text-text-muted hover:text-cobalt transition-colors">
                     {link}
                   </a>
                 </li>
@@ -68,8 +84,8 @@ export default function Footer() {
             <ul className="space-y-4 text-sm text-text-muted mb-8">
               <li><a href="mailto:info@skyvo.in" className="hover:text-cobalt transition-colors">info@skyvo.in</a></li>
               <li><a href="mailto:hello@skyvo.in" className="hover:text-cobalt transition-colors">hello@skyvo.in</a></li>
-              <li>+91 98765 43210</li>
-              <li>123 tech park, innovation hub</li>
+              <li><a href="tel:+919876543210" className="hover:text-cobalt transition-colors">+91 98765 43210</a></li>
+              <li>Bhopal, MP, India, 462022</li>
             </ul>
 
             {/* Newsletter UI */}
