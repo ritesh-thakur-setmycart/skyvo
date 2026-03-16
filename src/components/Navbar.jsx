@@ -60,21 +60,22 @@ export default function Navbar() {
         </div>
 
         {/* CTA */}
-        <motion.a 
-          href="#contact"
+        <motion.div 
           whileHover={{ 
             scale: 1.05,
             boxShadow: '0 10px 25px -5px rgba(0, 71, 255, 0.4)'
           }}
           whileTap={{ scale: 0.95 }}
-          className="hidden md:flex items-center justify-center px-6 py-2.5 bg-cobalt text-white rounded-full font-medium text-sm relative overflow-hidden group"
+          className="hidden md:flex relative overflow-hidden group rounded-full"
         >
-          <span className="relative z-10 flex items-center gap-2">
-            Get Started <span>&rarr;</span>
-          </span>
-          {/* Shimmer Effect */}
-          <div className="absolute inset-0 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-white/20 to-transparent" />
-        </motion.a>
+          <Link to="/contact" className="flex items-center justify-center px-6 py-2.5 bg-cobalt text-white rounded-full font-medium text-sm">
+            <span className="relative z-10 flex items-center gap-2">
+              Get Started <span>&rarr;</span>
+            </span>
+            {/* Shimmer Effect */}
+            <div className="absolute inset-0 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+          </Link>
+        </motion.div>
 
         {/* Mobile menu button could go here - keeping it simple per instructions */}
       </div>

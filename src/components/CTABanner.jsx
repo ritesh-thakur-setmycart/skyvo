@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 
 export default function CTABanner() {
   return (
@@ -24,12 +25,12 @@ export default function CTABanner() {
             Let's talk about your use case and build something extraordinary.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a 
-              href="mailto:info@skyvo.in"
+            <Link 
+              to="/contact"
               className="px-8 py-3.5 bg-cobalt text-white rounded-full font-medium shadow-lg shadow-cobalt/25 hover:bg-indigo hover:-translate-y-1 transition-all duration-300 w-full sm:w-auto"
             >
               Schedule a Free Consultation
-            </a>
+            </Link>
             <a 
               href="#services"
               className="px-8 py-3.5 bg-white text-text-primary rounded-full font-medium border border-gray-200 hover:border-text-primary hover:bg-gray-50 transition-all duration-300 w-full sm:w-auto"

@@ -41,7 +41,7 @@ export default function Footer() {
               {[
                 { name: 'About Us', path: '/about' },
                 { name: 'Services', path: '/#services' },
-                { name: 'Contact', path: '/#contact' }
+                { name: 'Contact', path: '/contact' }
               ].map((link, i) => (
                 <li key={i}>
                   {link.path.startsWith('/') && !link.path.includes('#') ? (

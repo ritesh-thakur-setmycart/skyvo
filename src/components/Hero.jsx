@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
 import * as THREE from 'three'
 import { gsap } from 'gsap'
+import { Link } from 'react-router-dom'
 
 // Constants
 const NODE_COUNT = typeof window !== 'undefined' && window.innerWidth < 768 ? 60 : 150
@@ -210,10 +211,10 @@ export default function Hero() {
 
           {/* CTA Row */}
           <motion.div variants={item} className="flex flex-col sm:flex-row items-center gap-4">
-            <a href="#contact" className="px-8 py-3.5 bg-cobalt text-white rounded-full font-medium shadow-lg shadow-cobalt/25 hover:bg-indigo hover:-translate-y-1 transition-all duration-300 w-full sm:w-auto flex items-center justify-center gap-2">
+            <Link to="/contact" className="px-8 py-3.5 bg-cobalt text-white rounded-full font-medium shadow-lg shadow-cobalt/25 hover:bg-indigo hover:-translate-y-1 transition-all duration-300 w-full sm:w-auto flex items-center justify-center gap-2">
               Get Started <span>&rarr;</span>
-            </a>
-            <a href="#services" className="px-8 py-3.5 bg-white text-text-primary rounded-full font-medium border border-gray-200 hover:border-text-primary hover:bg-gray-50 transition-all duration-300 w-full sm:w-auto">
+            </Link>
+            <a href="/#services" className="px-8 py-3.5 bg-white text-text-primary rounded-full font-medium border border-gray-200 hover:border-text-primary hover:bg-gray-50 transition-all duration-300 w-full sm:w-auto">
               Explore Our Services
             </a>
           </motion.div>

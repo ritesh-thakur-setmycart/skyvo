@@ -155,7 +155,7 @@ export default function AboutUs() {
             <Link to="/#services" className="px-8 py-4 rounded-xl bg-cobalt hover:bg-white hover:text-text-primary transition-colors font-semibold flex items-center gap-2">
               Explore Services
             </Link>
-            <Link to="/#contact" className="px-8 py-4 rounded-xl border border-gray-600 hover:border-white transition-colors font-semibold flex items-center gap-2">
+            <Link to="/contact" className="px-8 py-4 rounded-xl border border-gray-600 hover:border-white transition-colors font-semibold flex items-center gap-2">
               Contact Us <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
