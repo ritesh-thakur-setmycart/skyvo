@@ -9,6 +9,7 @@ import AboutUs from './pages/AboutUs'
 import Contact from './pages/Contact'
 import PrivacyPolicy from './pages/Privacy'
 import TermsOfService from './pages/Terms'
+import WhatsAppCTA from './components/WhatsAppCTA'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -61,6 +62,7 @@ export default function App() {
           <AnimatedRoutes />
         </div>
         <Footer />
+        <WhatsAppCTA />
       </main>
     </Router>
   )

@@ -125,7 +125,7 @@ function TrainingCard({ program }) {
         </button>
 
         <a 
-          href="mailto:info@skyvo.in?subject=Training Inquiry" 
+          href="https://wa.me/919827744484" 
           className="px-5 py-2.5 bg-text-primary hover:bg-black text-white rounded-full text-sm font-medium transition-colors"
           onClick={(e) => {
             // UI-only form behavior block
