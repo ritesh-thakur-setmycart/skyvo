@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Hexagon, Linkedin, Facebook, Instagram, Phone, Mail } from 'lucide-react'
+import { Linkedin, Facebook, Instagram, Phone, Mail } from 'lucide-react'
 
 export default function Footer() {
   return (
@@ -11,7 +11,7 @@ export default function Footer() {
           {/* Col 1 - Brand */}
           <div className="space-y-6">
             <Link to="/" className="flex items-center gap-2 group">
-              <Hexagon className="w-6 h-6 text-cobalt fill-cobalt/20 group-hover:rotate-12 transition-transform duration-300" />
+              <img src="/logo.png" alt="Skyvo Logo" className="w-8 h-8 object-contain group-hover:rotate-12 transition-transform duration-300" />
               <span className="font-display font-bold text-xl tracking-tight text-text-primary">
                 Skyvo Technologies
               </span>

@@ -1,4 +1,4 @@
-import { Hexagon, Target, Lightbulb, Shield, Zap, Users, ArrowRight } from 'lucide-react'
+import { Target, Lightbulb, Shield, Zap, Users, ArrowRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 export default function AboutUs() {
@@ -11,7 +11,7 @@ export default function AboutUs() {
         
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <div className="w-16 h-16 rounded-2xl bg-white border border-gray-200 shadow-sm flex items-center justify-center mx-auto mb-8">
-            <Hexagon className="w-8 h-8 text-cobalt" />
+            <img src="/logo.png" alt="Skyvo Logo" className="w-10 h-10 object-contain" />
           </div>
           <h1 className="font-display font-bold text-5xl md:text-6xl text-text-primary mb-6 tracking-tight">
             About Skyvo Technologies
