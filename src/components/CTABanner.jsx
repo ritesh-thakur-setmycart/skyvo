@@ -35,7 +35,7 @@ export default function CTABanner() {
               href="#services"
               className="px-8 py-3.5 bg-white text-text-primary rounded-full font-medium border border-gray-200 hover:border-text-primary hover:bg-gray-50 transition-all duration-300 w-full sm:w-auto"
             >
-              Explore Case Studies
+              Explore Our Services
             </a>
           </div>
         </div>

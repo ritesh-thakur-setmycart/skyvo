@@ -35,7 +35,11 @@ export default function TextType({ text, className }) {
 
   return (
     <h2 className={className} ref={containerRef}>
-      <span ref={textRef} className="opacity-100">{text}</span>
+      <span 
+        ref={textRef} 
+        className="opacity-100" 
+        dangerouslySetInnerHTML={{ __html: text }} 
+      />
       {/* Cursor is hidden as requested */}
     </h2>
   )

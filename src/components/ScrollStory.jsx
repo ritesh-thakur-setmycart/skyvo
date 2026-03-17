@@ -1,79 +1,91 @@
-import { useEffect } from 'react'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-
-gsap.registerPlugin(ScrollTrigger)
+import { motion } from 'framer-motion'
+import { Brain, Cpu, Zap, Trophy } from 'lucide-react'
 
 export default function ScrollStory() {
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      const phrases = gsap.utils.toArray('.story-phrase')
-      
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: '.story-section',
-          start: 'top top',
-          end: `+=${phrases.length * 120}%`,
-          pin: true,
-          scrub: 1.2,
-          anticipatePin: 1,
-        }
-      })
+  const features = [
+    {
+      icon: <Brain className="w-8 h-8 text-cobalt" />,
+      title: "AI that thinks.",
+      description: "Our agents understand complex business context, process unstructured data, and apply deep logical reasoning beyond simple pattern matching."
+    },
+    {
+      icon: <Cpu className="w-8 h-8 text-indigo" />,
+      title: "AI that plans.",
+      description: "Instead of following hardcoded rules, our systems dynamically construct multi-step execution strategies to reach your desired outcomes."
+    },
+    {
+      icon: <Zap className="w-8 h-8 text-amber" />,
+      title: "AI that executes.",
+      description: "From interacting with APIs to making informed system changes, our agents execute tasks autonomously with robust built-in safety rails."
+    },
+    {
+      icon: <Trophy className="w-8 h-8 text-cobalt" />,
+      title: "So your team can lead.",
+      description: "Free your workforce from repetitive manual tasks, empowering your people to focus on strategy, innovation, and creative leadership."
+    }
+  ]
 
-      // We animate each phrase sequentially
-      phrases.forEach((phrase, index) => {
-        // Entrance
-        tl.fromTo(phrase,
-            { opacity: 0, y: 80, filter: 'blur(16px)' },
-            { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.5 }
-          )
-        
-        // Exit (except for the last one if we want it to stay, but instructions say to exit to show progress)
-        tl.to(phrase,
-            { opacity: 0, y: -80, filter: 'blur(16px)', duration: 0.5 },
-            '+=0.4' // hold on screen for a moment
-          )
-      })
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15
+      }
+    }
+  }
 
-      // Progress bar animation
-      gsap.to('.story-progress', {
-        scaleX: 1,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: '.story-section',
-          start: 'top top',
-          end: `+=${phrases.length * 120}%`,
-          scrub: true,
-        }
-      })
-    })
-
-    return () => ctx.revert()
-  }, [])
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+  }
 
   return (
-    <section className="story-section relative w-full h-screen bg-white overflow-hidden flex items-center justify-center">
-      {/* Radial breathing background animation */}
-      <div className="absolute inset-0 z-0 opacity-40 bg-[radial-gradient(circle_at_center,rgba(0,71,255,0.08)_0%,transparent_60%)] animate-[pulse_4s_cubic-bezier(0.4,0,0.6,1)_infinite]" />
+    <section className="py-24 bg-gray-50 relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-cobalt/5 to-transparent pointer-events-none" />
+      
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8 }}
+          className="text-center max-w-3xl mx-auto mb-16 space-y-4"
+        >
+          <h2 className="font-display font-bold text-4xl md:text-5xl lg:text-5xl text-text-primary tracking-tight">
+            The Agentic Advantage
+          </h2>
+          <p className="text-lg text-text-muted leading-relaxed">
+            We build more than just chatbots. Our Agentic AI solutions are designed to operate as autonomous members of your team, driving real impact from day one.
+          </p>
+        </motion.div>
 
-      <div className="relative z-10 text-center w-full px-4">
-        <h2 className="story-phrase absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full font-display font-bold text-5xl md:text-7xl lg:text-[100px] leading-tight text-text-primary will-change-transform">
-          AI that <span className="text-transparent bg-clip-text bg-gradient-to-r from-cobalt to-indigo">thinks.</span>
-        </h2>
-        <h2 className="story-phrase absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full font-display font-bold text-5xl md:text-7xl lg:text-[100px] leading-tight text-text-primary will-change-transform opacity-0">
-          AI that <span className="text-transparent bg-clip-text bg-gradient-to-r from-cobalt to-indigo">plans.</span>
-        </h2>
-        <h2 className="story-phrase absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full font-display font-bold text-5xl md:text-7xl lg:text-[100px] leading-tight text-text-primary will-change-transform opacity-0">
-          AI that <span className="text-transparent bg-clip-text bg-gradient-to-r from-cobalt to-indigo">executes.</span>
-        </h2>
-        <h2 className="story-phrase absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full font-display font-bold text-5xl md:text-7xl lg:text-[100px] leading-tight text-text-primary will-change-transform opacity-0">
-          So your team can <span className="text-transparent bg-clip-text bg-gradient-to-r from-cobalt to-indigo">lead.</span>
-        </h2>
-      </div>
-
-      {/* Progress Bar */}
-      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gray-100 z-20">
-        <div className="story-progress h-full bg-cobalt w-full origin-left scale-x-0 will-change-transform" />
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          className="grid md:grid-cols-2 gap-8 lg:gap-12"
+        >
+          {features.map((feature, index) => (
+            <motion.div 
+              key={index}
+              variants={itemVariants}
+              className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-md hover:border-cobalt/20 transition-all duration-300 group"
+            >
+              <div className="w-16 h-16 rounded-xl bg-gray-50 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-cobalt/5 transition-all duration-300">
+                {feature.icon}
+              </div>
+              <h3 className="font-display font-bold text-2xl text-text-primary mb-3">
+                {feature.title}
+              </h3>
+              <p className="text-text-muted leading-relaxed">
+                {feature.description}
+              </p>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </section>
   )

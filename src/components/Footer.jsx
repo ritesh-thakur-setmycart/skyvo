@@ -1,16 +1,8 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Hexagon, Linkedin, Facebook, Instagram } from 'lucide-react'
+import { Hexagon, Linkedin, Facebook, Instagram, Phone, Mail } from 'lucide-react'
 
 export default function Footer() {
-  const [subscribed, setSubscribed] = useState(false)
-
-  const handleSubscribe = (e) => {
-    e.preventDefault()
-    setSubscribed(true)
-    setTimeout(() => setSubscribed(false), 3000)
-  }
-
   return (
     <footer id="contact" className="bg-white border-t border-gray-100 pt-20 pb-8 px-6">
       <div className="max-w-7xl mx-auto">
@@ -44,16 +36,23 @@ export default function Footer() {
                 { name: 'Contact', path: '/contact' }
               ].map((link, i) => (
                 <li key={i}>
-                  {link.path.startsWith('/') && !link.path.includes('#') ? (
-                    <Link to={link.path} className="text-sm text-text-muted hover:text-cobalt transition-colors">
-                      {link.name}
-                    </Link>
-                  ) : (
+                  
                     <a href={link.path} className="text-sm text-text-muted hover:text-cobalt transition-colors">
                       {link.name}
                     </a>
-                  )}
+                  
                 </li>
+                // <li key={i}>
+                //   {link.path.startsWith('/') && !link.path.includes('#') ? (
+                //     <Link to={link.path} className="text-sm text-text-muted hover:text-cobalt transition-colors">
+                //       {link.name}
+                //     </Link>
+                //   ) : (
+                //     <a href={link.path} className="text-sm text-text-muted hover:text-cobalt transition-colors">
+                //       {link.name}
+                //     </a>
+                //   )}
+                // </li>
               ))}
             </ul>
           </div>
@@ -82,30 +81,15 @@ export default function Footer() {
           <div>
             <h4 className="font-display font-semibold text-text-primary mb-6">Contact</h4>
             <ul className="space-y-4 text-sm text-text-muted mb-8">
-              <li><a href="mailto:info@skyvo.in" className="hover:text-cobalt transition-colors">info@skyvo.in</a></li>
-              <li><a href="mailto:hello@skyvo.in" className="hover:text-cobalt transition-colors">hello@skyvo.in</a></li>
-              <li><a href="tel:+919876543210" className="hover:text-cobalt transition-colors">+91 98765 43210</a></li>
-              <li>Bhopal, MP, India, 462022</li>
+              <li className="flex items-center gap-3">
+                <Mail className="w-4 h-4 text-cobalt" />
+                <a href="mailto:info@skyvo.in" className="hover:text-cobalt transition-colors">info@skyvo.in</a>
+              </li>
+              <li className="flex items-center gap-3">
+                <Phone className="w-4 h-4 text-cobalt" />
+                <a href="tel:+919827744484" className="hover:text-cobalt transition-colors">+91 9827744484</a>
+              </li>
             </ul>
-
-            {/* Newsletter UI */}
-            <div>
-              <h5 className="text-sm font-semibold text-text-primary mb-3">Newsletter</h5>
-              <form onSubmit={handleSubscribe} className="flex flex-col gap-2">
-                <input 
-                  type="email" 
-                  placeholder="name@email.com" 
-                  required
-                  className="px-4 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-cobalt focus:ring-1 focus:ring-cobalt transition-colors"
-                />
-                <button 
-                  type="submit"
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${subscribed ? 'bg-green-100 text-green-700' : 'bg-text-primary text-white hover:bg-black'}`}
-                >
-                  {subscribed ? '✓ Subscribed!' : 'Subscribe \u2192'}
-                </button>
-              </form>
-            </div>
           </div>
         </div>
 
@@ -115,9 +99,8 @@ export default function Footer() {
             © 2025 Skyvo Technologies. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
-            <a href="#" className="text-sm text-gray-500 hover:text-text-primary transition-colors">Privacy Policy</a>
-            <a href="#" className="text-sm text-gray-500 hover:text-text-primary transition-colors">Terms of Service</a>
-            <a href="#" className="text-sm text-gray-500 hover:text-text-primary transition-colors">Cookie Policy</a>
+            <Link to="/privacy" className="text-sm text-gray-500 hover:text-text-primary transition-colors">Privacy Policy</Link>
+            <Link to="/terms" className="text-sm text-gray-500 hover:text-text-primary transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>

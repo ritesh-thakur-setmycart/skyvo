@@ -59,9 +59,12 @@ export default function TypewriterHeading({ text, className }) {
       {words.map((word, wIdx) => (
         <span key={wIdx} className="word inline-block mr-[0.25em] whitespace-nowrap">
           {word.split('').map((char, cIdx) => (
-            <span key={cIdx} data-char={char} className="char opacity-0 inline-block min-w-[0.3em] overflow-hidden text-center">
-              {char}
-            </span>
+            <span 
+              key={cIdx} 
+              data-char={char} 
+              className="char opacity-0 inline-block min-w-[0.3em] overflow-hidden text-center"
+              dangerouslySetInnerHTML={{ __html: char }}
+            />
           ))}
         </span>
       ))}
