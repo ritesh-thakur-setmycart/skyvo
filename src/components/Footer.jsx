@@ -10,11 +10,11 @@ export default function Footer() {
           
           {/* Col 1 - Brand */}
           <div className="space-y-6">
-            <Link to="/" className="flex items-center gap-2 group">
-              <img src="/logo.png" alt="Skyvo Logo" className="w-8 h-8 object-contain group-hover:rotate-12 transition-transform duration-300" />
-              <span className="font-display font-bold text-xl tracking-tight text-text-primary">
+            <Link to="/" className="flex justify-start md:items-center  gap-2 group">
+              <img src="/logo.png" alt="Skyvo Logo" className="w-48 h-8 object-contain  transition-transform duration-300" />
+              {/* <span className="font-display font-bold text-xl tracking-tight text-text-primary">
                 Skyvo Technologies
-              </span>
+              </span> */}
             </Link>
             <p className="text-text-muted text-sm leading-relaxed">
               Architecting intelligent systems that transform how businesses operate through Agentic AI.
