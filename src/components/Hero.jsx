@@ -168,7 +168,7 @@ export default function Hero() {
   }, [])
 
   return (
-    <section className="relative w-full h-screen min-h-[600px] flex items-center justify-center overflow-hidden bg-white">
+    <section className="relative w-full h-screen min-h-[600px] flex items-center justify-center overflow-visible bg-white">
       {/* Subtle grain overlay */}
       <div className="absolute inset-0 z-10 pointer-events-none opacity-[0.03] mix-blend-multiply bg-[url('https://upload.wikimedia.org/wikipedia/commons/7/76/1k_Dissolve_Noise_Texture.png')]" />
 
@@ -226,7 +226,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 text-gray-400"
+        className="absolute bottom-8 hidden md:block left-1/2 -translate-x-1/2 z-20 text-gray-400"
       >
         <motion.div
           animate={{ y: [0, 8, 0] }}

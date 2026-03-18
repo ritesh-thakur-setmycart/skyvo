@@ -3,10 +3,10 @@ export const techCategories = [
     id: 'llm',
     label: 'LLM Platforms',
     items: [
-      { name: 'OpenAI', detail: 'GPT-4, GPT-4 Turbo, GPT-4o', badge: 'Industry Leader' },
-      { name: 'Anthropic', detail: 'Claude 3.5 Sonnet, Claude 3 Opus', badge: 'Advanced Reasoning' },
-      { name: 'Google AI', detail: 'Gemini 1.5 Pro, Vertex AI', badge: 'Multimodal' },
-      { name: 'Meta', detail: 'Llama 3, Code Llama', badge: 'Open Source' },
+      { name: 'OpenAI', detail: 'GPT-4, GPT-4 Turbo, GPT-5.3', badge: 'Industry Leader' },
+      { name: 'Anthropic', detail: 'Claude 4.6 Sonnet, Claude 4.6 Opus', badge: 'Advanced Reasoning' },
+      { name: 'Google AI', detail: 'Gemini 3.1 Pro, Vertex AI', badge: 'Multimodal' },
+      { name: 'Meta', detail: 'Llama 4, Code Llama', badge: 'Open Source' },
       { name: 'Mistral AI', detail: 'Mixtral 8x7B', badge: 'Multilingual' },
     ]
   },

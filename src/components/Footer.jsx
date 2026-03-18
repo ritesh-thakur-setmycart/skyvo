@@ -11,7 +11,7 @@ export default function Footer() {
           {/* Col 1 - Brand */}
           <div className="space-y-6">
             <Link to="/" className="flex justify-start md:items-center  gap-2 group">
-              <img src="/logo.png" alt="Skyvo Logo" className="w-48 h-8 object-contain  transition-transform duration-300" />
+              <img src="/logo.png" alt="Skyvo Logo" className=" h-12 object-contain  transition-transform duration-300" />
               {/* <span className="font-display font-bold text-xl tracking-tight text-text-primary">
                 Skyvo Technologies
               </span> */}
